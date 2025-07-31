@@ -1,13 +1,141 @@
 body {
-  font-family: sans-serif;
-  background-color: #f0f8ff;
-  text-align: center;
-  padding: 50px;
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #fff;
+  color: #333;
+  line-height: 1.6;
 }
 
-button {
-  padding: 10px 20px;
+header {
+position: fixed;
+top: 0; left: 0; right: 0;
+background: white;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+z-index: 100;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+.hero {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.hero h1 {
+  font-size: 40px;
+}
+
+section {
+  padding-top: 120px;  /* ← ヘッダーの高さ + 少し余裕 */
+  padding-bottom: 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+.line-btn {
+  display: inline-block;
+  background: #06c755;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+footer {
+  background: #f0f0f0;
+  padding: 1rem;
+  text-align: center;
+}
+.faq-chat {
+  max-width: 800px;
+  margin: 100px auto 60px;
+  padding: 0 20px;
+}
+
+.chat {
+  margin-bottom: 1rem;
+  padding: 0.8em 1em;
+  border-radius: 10px;
+  max-width: 80%;
+  line-height: 1.6;
+}
+
+.chat.user {
+  background-color: #f1f1f1;
+  align-self: flex-start;
+}
+
+.chat.admin {
+  background-color: #d2f4d2;
+  align-self: flex-end;
+  margin-left: auto;
+}
+.contact-section {
+  max-width: 800px;
+  margin: 100px auto 60px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.line-button {
+  display: inline-block;
+  background-color: #06c755;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  margin: 20px 0;
   font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.line-button:hover {
+  background-color: #04b24c;
+}
+
+.contact-info {
+  font-size: 16px;
+  color: #333;
+  line-height: 2;
+  text-align: left;
   margin-top: 20px;
-  cursor: pointer;
+}
+
+.contact-info a {
+  color: #06c755;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
 }

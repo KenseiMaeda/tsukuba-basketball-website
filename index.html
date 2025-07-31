@@ -1,18 +1,247 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>大人のゆるバスケ</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>つくばバスケットボールスクール</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #06c755;
+    }
+
+    section:not(.hero) {
+      padding: 60px 20px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      width: 100vw;
+      height: 80vh;
+      padding-top: 120px;
+      background-image: url('images/header.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+    }
+
+    .hero h1 {
+      margin-bottom: 0.3em;
+      line-height: 1.2;
+      font-size: 40px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-top: 0;
+      line-height: 1.2;
+    }
+
+    .btn-line {
+      display: inline-block;
+      background: #06c755;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+
+    ul.info-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.info-list li::before {
+      content: "✔ ";
+      color: #06c755;
+    }
+
+    footer {
+      text-align: center;
+      background: #f6f6f6;
+      padding: 1rem;
+      font-size: 14px;
+    }
+
+    h2 a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s ease;
+    }
+
+    h2 a:hover,
+    h2 a:active {
+      color: #06c755;
+    }
+
+    /* アニメーション */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media screen and (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>🏀 大人のゆるバスケ</h1>
-  <p>初心者・運動不足歓迎！楽しくバスケで汗を流しませんか？</p>
 
-  <button onclick="showMessage()">詳細を見る</button>
-  <p id="message" style="display:none;">毎週日曜日10時から○○体育館で開催中！</p>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <a href="index.html" style="text-decoration: none; color: inherit;">B-ACEバスケットボールスクール</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="about.html">活動内容</a></li>
+          <li><a href="schedule.html">日程・場所</a></li>
+          <li><a href="price.html">料金</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <script src="script.js"></script>
+  <section class="hero">
+    <h1>B-ACEバスケットボールスクール</h1>
+    <p>つくば市で活動する大人のための個別特化型バスケスクール</p>
+  </section>
+
+  <section class="catch fade-in" style="text-align: center;">
+    <h2>バスケットボールで最高のあなたを</h2>
+    <p>大人になってから仕事や家事の都合上、運動不足を感じることが増えたと思います。<br>
+      そこで新たな生きがいとしてバスケットボールを始めてみませんか。<br>
+      B-ACE（ビーエース）はバスケットボールを通じて、あなたの心と体が最高の状態になるための後押しをします。
+    </p>
+  </section>
+
+  <section id="about" class="fade-in">
+    <h2><a href="about.html">📌 活動内容</a></h2>
+    <p>シュート、ドリブル、パス、ディフェンスなどのスキルを軽い運動を交えながら高めていきます。<br>
+    経験年数や体力に応じた練習で個人に寄り添ったスキルアップをはかります。</p>
+  </section>
+
+  <section id="schedule" class="fade-in">
+    <h2><a href="schedule.html">📅 日程・場所</a></h2>
+    <ul class="info-list">
+      <li>毎週水曜日 20:00〜21:30</li>
+      <li>つくば市内の体育館</li>
+    </ul>
+  </section>
+
+  <section id="price" class="fade-in">
+    <h2><a href="price.html">💰 料金・参加方法</a></h2>
+    <ul class="info-list">
+      <li>月額5,000円（週1回・90分）</li>
+      <li>初回体験無料</li>
+    </ul>
+  </section>
+
+  <section id="faq" class="fade-in">
+    <h2><a href="faq.html">❓ よくある質問</a></h2>
+    <ul class="info-list">
+      <li>初心者でも大丈夫？ → 大歓迎です！</li>
+      <li>服装は？ → 動きやすい格好でOK。靴は体育館シューズ推奨。</li>
+      <li>年齢制限は？ → 18歳以上の大人を基本的に対象としていますが、一度相談いただければと思います。</li>
+      <li>バスケ道具は持っていく？ → ボールは貸出あり。持参も歓迎！</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <h2><a href="contact.html">📩 お問い合わせ・申し込み</a></h2>
+    <p>以下のLINEリンクからご連絡ください。<br>体験・質問だけでもOKです！</p>
+    <a href="https://lin.ee/your-line-link" class="btn-line">LINEで問い合わせ</a>
+  </section>
+
+  <footer>
+    &copy; 2025 B-ACE バスケットボールスクール All Rights Reserved.
+  </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+
 </body>
 </html>

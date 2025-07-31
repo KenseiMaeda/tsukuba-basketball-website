@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>活動内容 | つくばバスケットボールスクール</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      color: #333;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #06c755;
+    }
+
+    section {
+      padding: 120px 20px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    table {
+      width: 100%;
+      max-width: 600px;
+      border-collapse: collapse;
+      margin: 1em 0;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f6f6f6;
+    }
+
+    footer {
+      text-align: center;
+      background: #f6f6f6;
+      padding: 1rem;
+      font-size: 14px;
+    }
+
+    /* アニメーション効果 */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <a href="index.html" style="text-decoration:none; color: inherit;">B-ACEバスケットボールスクール</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="about.html">活動内容</a></li>
+          <li><a href="schedule.html">日程・場所</a></li>
+          <li><a href="price.html">料金</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="fade-in">
+    <h1>📌 活動内容</h1>
+    <p>
+      ＜大人の部＞<br>
+      シュート、ドリブル、パス、ディフェンスなどのスキルを軽い運動を交えながら高めていきます。<br>
+      経験年数や体力に応じた練習で、個人に寄り添ったスキルアップをはかります。
+    </p>
+
+    <p>下に具体的な練習メニューの例を示します。</p>
+
+    <h2>📝 Aさんの練習メニュー</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>時間</th>
+          <th>練習内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>0:00</td><td>ウォーミングアップ</td></tr>
+        <tr><td>0:15</td><td>シュートフォーム確認</td></tr>
+        <tr><td>0:30</td><td>パスからのシュート</td></tr>
+        <tr><td>0:45</td><td>ドリブルからのシュート</td></tr>
+        <tr><td>1:00</td><td>実践形式の動きからのシュート</td></tr>
+        <tr><td>1:15</td><td>フリースロー練習</td></tr>
+        <tr><td>1:30</td><td>終了</td></tr>
+      </tbody>
+    </table>
+
+    <p>
+      このようにシュートひとつをとっても、段階的かつ実践的な練習で基礎から身につけていきます。<br>
+      成長速度に合わせて楽しくバスケットボールに触れてもらいます。
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 B-ACE バスケットボールスクール All Rights Reserved.
+  </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+
+</body>
+</html>

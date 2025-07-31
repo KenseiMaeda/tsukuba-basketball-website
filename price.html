@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>料金 | つくばバスケットボールスクール</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      margin: 0;
+      color: #333;
+      background: #fff;
+    }
+
+    section {
+      padding: 120px 20px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1, h2 {
+      color: #333;
+      margin-top: 1.5em;
+    }
+
+    ul.info-list {
+      list-style: none;
+      padding: 0;
+      margin: 1em 0;
+    }
+
+    ul.info-list li::before {
+      content: "✔ ";
+      color: #06c755;
+      margin-right: 0.5em;
+    }
+
+    ol {
+      padding-left: 1.2em;
+      margin-top: 1em;
+    }
+
+    li {
+      margin-bottom: 0.5em;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">B-ACEバスケットボールスクール</a></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="about.html">活動内容</a></li>
+          <li><a href="schedule.html">日程・場所</a></li>
+          <li><a href="price.html">料金</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="fade-in">
+    <h1>💰 料金</h1>
+    <ul class="info-list">
+      <li>月額 5,000円（週1回・90分）</li>
+      <li>初回体験無料（事前予約制）</li>
+      <li>途中参加の場合：<strong>1回あたり1,250円 × 参加回数分</strong></li>
+    </ul>
+
+    <h2>🧾 支払い方法</h2>
+    <p>月初に現金または PayPay にてお支払いください。</p>
+
+    <h2>📋 参加までの流れ</h2>
+    <ol>
+      <li>LINE・電話・メールにて体験予約</li>
+      <li>当日は動きやすい服装・体育館シューズでご参加ください</li>
+      <li>継続をご希望の方は、月謝のお支払いで正式登録となります</li>
+    </ol>
+
+    <h2>🎒 持ち物・服装</h2>
+    <p>運動しやすい服装、体育館シューズ、飲み物、タオルをご持参ください。</p>
+  </section>
+
+  <footer style="text-align:center; padding: 1rem; background:#f6f6f6; font-size:14px;">
+    &copy; 2025 B-ACE バスケットボールスクール All Rights Reserved.
+  </footer>
+
+  <script>
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

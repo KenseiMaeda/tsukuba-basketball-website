@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>日程・場所 | つくばバスケットボールスクール</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #06c755;
+    }
+
+    section {
+      padding: 120px 20px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-top: 2em;
+      color: #333;
+    }
+
+    ul.info-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.info-list li::before {
+      content: "✔ ";
+      color: #06c755;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      margin-top: 0.5em;
+    }
+
+    footer {
+      text-align: center;
+      background: #f6f6f6;
+      padding: 1rem;
+      font-size: 14px;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">B-ACEバスケットボールスクール</a></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="about.html">活動内容</a></li>
+          <li><a href="schedule.html">日程・場所</a></li>
+          <li><a href="price.html">料金</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="fade-in">
+    <h1>📅 日程・場所</h1>
+    <ul class="info-list">
+      <li>毎週水曜日 20:00〜21:30</li>
+      <li>つくば市大穂体育館、つくば市筑波総合体育館 他</li>
+    </ul>
+
+    <h2>▶ 大穂体育館</h2>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3222.2310874757823!2d140.0793520755134!3d36.13658627244373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022092240d82147%3A0xe59278f4c44d589b!2z5aSn56mC5L2T6IKy6aSo!5e0!3m2!1sja!2sjp!4v1753887265307!5m2!1sja!2sjp"
+      loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <h2>▶ 筑波総合体育館</h2>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220.6909123463747!2d140.10072407551516!3d36.1740753724322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60220f4c80a1f0c9%3A0x2c46540a1f99b2a4!2z44Gk44GP44Gw5biCIOetkeazoue3j-WQiOS9k-iCsumkqA!5e0!3m2!1sja!2sjp!4v1753887395808!5m2!1sja!2sjp"
+      loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </section>
+
+  <footer>
+    &copy; 2025 B-ACE バスケットボールスクール All Rights Reserved.
+  </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.1 });
+
+    faders.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
