@@ -1,0 +1,552 @@
+/* =========================
+   基本設定
+========================= */
+:root{
+  --maxw: 1100px;
+  --pad: 16px;
+  --green: #06c755;
+}
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  line-height: 1.7;
+  color: #333;
+  background-color: #fff;
+}
+
+/* =========================
+   ヘッダー（stickyで安定）
+========================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.header-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px var(--pad);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 700;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: var(--green);
+}
+
+/* =========================
+   ヒーロー（暗め背景）
+========================= */
+.hero {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  /* 👇 高さ調整はここ */
+  min-height: 45vh;
+  max-height: 420px;
+
+  padding: 64px var(--pad);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background-image: url('../../images/header.jpg');
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+}
+
+/* 暗幕（画像だけ暗くする） */
+.hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45); /* ← 暗さはここで調整 */
+  pointer-events: none;
+}
+
+/* hero内テキスト */
+.hero-inner{
+  position: relative;
+  max-width: 820px;
+  width: 100%;
+}
+
+.hero h1 {
+  margin: 0 0 10px;
+  font-size: clamp(26px, 4vw, 44px);
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.hero p {
+  margin: 0;
+  font-size: clamp(14px, 2vw, 18px);
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* =========================
+   共通セクション
+========================= */
+main section:not(.hero) {
+  padding: 60px var(--pad) 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.catch {
+  text-align: center;
+}
+
+/* =========================
+   FEATURES（おすすめ3つ）
+========================= */
+.features{
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px var(--pad) 40px;
+  text-align: center;
+}
+
+.features h2{
+  margin: 0 0 22px;
+  font-size: 24px;
+}
+
+.feature-items{
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.feature{
+  background: #fafafa;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 14px;
+  padding: 22px 18px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+  text-align: left;
+}
+
+.feature-icon{
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.feature h3{
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: #111;
+}
+
+.feature p{
+  margin: 0;
+  color: #444;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.features-cta{
+  margin-top: 20px;
+}
+
+/* スマホ：3列→1列 */
+@media (max-width: 768px){
+  .feature-items{
+    grid-template-columns: 1fr;
+  }
+  .features{
+    padding: 50px var(--pad) 30px;
+  }
+}
+
+/* =========================
+   LINEボタン
+========================= */
+.btn-line {
+  display: inline-block;
+  background: var(--green);
+  color: #fff;
+  padding: 12px 22px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 700;
+  margin-top: 1rem;
+  box-shadow: 0 8px 18px rgba(6,199,85,0.22);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.btn-line:hover{
+  transform: translateY(-1px);
+  filter: brightness(0.96);
+}
+
+/* =========================
+   タイムライン（目盛り＋レーン）
+========================= */
+.timeline{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 0; /* about内に入れる前提で横paddingはsection側に任せる */
+}
+
+.ticks{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  font-size: 12px;
+  color: #666;
+  margin: 10px 0 8px;
+}
+
+.ticks span{ text-align: center; }
+.ticks span:first-child{ text-align: left; }
+.ticks span:last-child{ text-align: right; }
+
+/* 60分 = 60列 */
+.lane{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(60, 1fr);
+  height: 64px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 12px;
+
+  /* 吹き出しが外に出るので visible にする */
+  overflow: visible;
+
+  background: #fafafa;
+}
+
+/* 15分ごとの薄いガイド線（0/15/30/45/60） */
+.lane::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      to right,
+      rgba(0,0,0,0.08) 0,
+      rgba(0,0,0,0.08) 1px,
+      transparent 1px,
+      transparent calc(25% - 0px)
+    );
+  pointer-events:none;
+  opacity: 0.6;
+  border-radius: 12px;
+}
+
+/* =========================
+   タイムライン：吹き出し（details/summary）版
+   ※HTMLが <details class="block warmup tip"> の想定
+========================= */
+
+/* details自体（グリッドアイテム） */
+.block.tip{
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  z-index: 2; /* ガイド線より前 */
+}
+
+/* summaryをバーとして表示 */
+.block.tip > summary{
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  height: 48px;       /* lane(64px)内で上下に余白を残す */
+  margin: 8px 6px;
+  padding: 0 8px;
+  border-radius: 10px;
+
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+  white-space: nowrap;
+}
+
+.block.tip > summary::-webkit-details-marker{
+  display:none;
+}
+
+/* 色（summaryに背景を当てる） */
+.warmup.tip > summary{ background: rgba(255, 200, 0, 0.55); }
+.skill.tip  > summary{ background: rgba(0, 200, 255, 0.45); }
+.game.tip   > summary{ background: rgba(0, 255, 120, 0.45); }
+.cool.tip   > summary{ background: rgba(180, 180, 180, 0.45); }
+
+/* 時間配置（あなたの分配に合わせて） */
+.warmup.tip{ grid-column: 1 / 11; }   /* 0-10 */
+.skill.tip { grid-column: 11 / 36; }  /* 10-35（25分） */
+.game.tip  { grid-column: 36 / 56; }  /* 35-55（20分） */
+.cool.tip  { grid-column: 56 / 61; }  /* 55-60（5分） */
+
+/* 開いてる時の強調 */
+.block.tip[open] > summary{
+  filter: brightness(0.95);
+  outline: 2px solid rgba(255,255,255,0.85);
+  outline-offset: 2px;
+}
+
+/* 吹き出し本体 */
+.tip-box{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;                 /* ← 下に出す */
+  margin-top: 10px;          /* ← summaryとの間隔 */
+
+  width: min(340px, 90vw);
+  padding: 12px 14px;
+
+  background: #ffffff;       /* ← 明るめ背景 */
+  color: #333;               /* ← 文字色 */
+  border-radius: 12px;
+
+  font-size: 13px;
+  line-height: 1.6;
+
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,0,0,0.08);
+
+  z-index: 20;
+}
+
+
+/* 三角 */
+.tip-box::after{
+  content:"";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -8px;                 /* ← 上側に付ける */
+
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #ffffff; /* ← 背景色と同じ */
+}
+
+/* hoverでも吹き出しを表示 */
+.block.tip:hover .tip-box{
+  display: block;
+}
+
+/* hover中はsummaryも強調 */
+.block.tip:hover > summary{
+  filter: brightness(0.97);
+  outline: 2px solid rgba(0,0,0,0.15);
+  outline-offset: 2px;
+}
+
+
+
+/* 閉じている時は非表示 */
+.block.tip:not([open]) .tip-box{
+  display: none;
+}
+
+/* =========================
+   リスト
+========================= */
+ul.info-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+ul.info-list li {
+  margin: 8px 0;
+}
+
+ul.info-list li::before {
+  content: "✔ ";
+  color: var(--green);
+  font-weight: 700;
+}
+
+/* =========================
+   見出しリンク
+========================= */
+h2 a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+h2 a:hover,
+h2 a:active {
+  color: var(--green);
+}
+
+/* =========================
+   フッター
+========================= */
+footer {
+  text-align: center;
+  background: #f6f6f6;
+  padding: 1rem;
+  font-size: 14px;
+}
+
+/* =========================
+   フェードイン
+========================= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   スマホ最適化
+========================= */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .hero {
+    min-height: 38vh;
+    max-height: 320px;
+    padding: 48px var(--pad);
+    background-position: center 30%;
+  }
+
+  /* スマホ：吹き出し幅を少し抑える */
+  .tip-box{
+    width: min(320px, 92vw);
+  }
+}
+/* =========================
+   LINE：QRモーダル
+========================= */
+.line-modal{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 300;
+  padding: 18px;
+}
+
+.line-modal.show{
+  display: flex;
+}
+
+.line-modal-content{
+  background: #fff;
+  border-radius: 16px;
+  width: min(360px, 92vw);
+  padding: 20px 18px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+
+.line-close{
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.line-title{
+  margin: 4px 0 6px;
+  font-size: 18px;
+}
+
+.line-desc{
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #666;
+}
+
+.line-qr{
+  width: 220px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.line-note{
+  margin: 12px 0 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.line-text{
+  width: 100%;
+  height: 110px;
+  resize: none;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: #fafafa;
+}
+

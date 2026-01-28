@@ -5,160 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="google-site-verification" content="ngmIXvDWFOY3KLVZhHjxmLaym4uym4VjA-7YLmzLi60" />
   <title>つくばバスケットボールスクール</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Noto Sans JP', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #fff;
-    }
 
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      z-index: 100;
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: #06c755;
-    }
-
-    section:not(.hero) {
-      padding: 60px 20px 40px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero {
-      width: 100vw;
-      height: 80vh;
-      padding-top: 120px;
-      background-image: url('images/header.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: white;
-      text-align: center;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-    }
-
-    .hero h1 {
-      margin-bottom: 0.3em;
-      line-height: 1.2;
-      font-size: 40px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      margin-top: 0;
-      line-height: 1.2;
-    }
-
-    .btn-line {
-      display: inline-block;
-      background: #06c755;
-      color: white;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      margin-top: 1rem;
-    }
-
-    ul.info-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    ul.info-list li::before {
-      content: "✔ ";
-      color: #06c755;
-    }
-
-    footer {
-      text-align: center;
-      background: #f6f6f6;
-      padding: 1rem;
-      font-size: 14px;
-    }
-
-    h2 a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.2s ease;
-    }
-
-    h2 a:hover,
-    h2 a:active {
-      color: #06c755;
-    }
-
-    /* アニメーション */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
-    }
-
-    .fade-in.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media screen and (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
 
-  <header>
+<body>
+  <!-- =========================
+       HEADER：サイトヘッダー
+  ========================= -->
+  <header class="site-header">
     <div class="header-inner">
       <div class="logo">
-        <a href="index.html" style="text-decoration: none; color: inherit;">B-ACEバスケットボールスクール</a>
+        <a href="index.html" class="logo-link">ゼロコアバスケ</a>
       </div>
-      <nav>
+      <nav class="nav">
         <ul>
           <li><a href="index.html">ホーム</a></li>
           <li><a href="about.html">活動内容</a></li>
@@ -171,77 +32,304 @@
     </div>
   </header>
 
+  <!-- =========================
+       HERO：ファーストビュー
+  ========================= -->
   <section class="hero">
-    <h1>B-ACEバスケットボールスクール</h1>
-    <p>つくば市で活動する初心者のためのバスケスクール</p>
+    <div class="hero-inner">
+      <p class="hero-badge"></p>
+      <h1>ゼロコアバスケ</h1>
+      <p class="hero-lead">少人数制の個人向けバスケスクール</p>
   </section>
 
-  <section class="catch fade-in" style="text-align: center;">
-    <h2>バスケットボールで最高のあなたを</h2>
-    <p>バスケットを始めたいけど、敷居が高い<br>
-      そう感じる方に個人に合わせた最適な練習をB-ACE（ビーエース）は提供します<br>
-      バスケットボールを通じて、あなたの心と体が最高の状態になるための後押しをします。
-    </p>
-  </section>
+  <main>
+    <!-- =========================
+         CONCEPT：コンセプト
+    ========================= -->
+    <section class="catch fade-in">
+      <h2>ゼロから作るあなたのコアを</h2>
+      <p>
+        バスケを始めたい、バスケを上手になりたい<br>
+        そう思うあなたに個人に最適な練習を私たちは提供します<br>
+      </p>
+    </section>
 
-  <section id="about" class="fade-in">
-    <h2><a href="about.html">📌 活動内容</a></h2>
-    <p>シュート、ドリブル、パス、ディフェンスなどのスキルを軽い運動を交えながら高めていきます。<br>
-    経験年数や体力に応じた練習で個人に寄り添ったスキルアップをはかります。</p>
-  </section>
+    <!-- =========================
+         FEATURES：選ばれる理由
+    ========================= -->
+    <section class="features fade-in">
+      <h2>選ばれる3つの理由</h2>
 
-  <section id="schedule" class="fade-in">
-    <h2><a href="schedule.html">📅 日程・場所</a></h2>
-    <ul class="info-list">
-      <li>平日 20:00〜21:30</li>
-      <li>つくば市内の体育館</li>
-    </ul>
-  </section>
+      <div class="feature-items">
+        <!-- FEATURE 1 -->
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">👥</div>
+          <h3>初心者でも始めやすい</h3>
+          <p>少人数制なので個人に合わせて、基礎からわかりやすく指導します！</p>
+        </div>
 
-  <section id="price" class="fade-in">
-    <h2><a href="price.html">💰 料金・参加方法</a></h2>
-    <ul class="info-list">
-      <li>月額6,000円〜</li>
-      <li>初回体験無料</li>
-    </ul>
-  </section>
+        <!-- FEATURE 2 -->
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">🔰</div>
+          <h3>大人クラスも充実</h3>
+          <p>お子様だけでなく、社会人のクラスも実施しております！</p>
+        </div>
 
-  <section id="faq" class="fade-in">
-    <h2><a href="faq.html">❓ よくある質問</a></h2>
-    <ul class="info-list">
-      <li>初心者でも大丈夫？ → 大歓迎です！</li>
-      <li>服装は？ → 動きやすい格好でOK。靴は体育館シューズ推奨。</li>
-      <li>年齢制限は？ → 特にありません！幅広い年齢の方を対象としています。</li>
-      <li>バスケ道具は持っていく？ → ボールは貸出あり。持参も歓迎！</li>
-    </ul>
-  </section>
+        <!-- FEATURE 3 -->
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">🏀</div>
+          <h3>希望にあわせたレッスン</h3>
+          <p>日時や会場、備品もこちらで手配するので最低限の準備でOKです！</p>
+        </div>
+      </div>
 
-  <section id="contact" class="fade-in">
-    <h2><a href="contact.html">📩 お問い合わせ・申し込み</a></h2>
-    <p>以下のLINEリンクからご連絡ください。<br>体験・質問だけでもOKです！</p>
-    <a href="https://lin.ee/your-line-link" class="btn-line">LINEで問い合わせ</a>
-  </section>
+      <!-- CTA：LINE申し込み -->
+      <div class="features-cta">
+        <button type="button" class="btn-line js-open-line">LINEで問い合わせ</button>
+    </section>
 
+    <!-- =========================
+         ABOUT：活動内容
+    ========================= -->
+    <section id="about" class="fade-in">
+      <h2><a href="about.html">📌 活動内容</a></h2>
+      <p>
+        シュート、ドリブル、パス、ディフェンスなどのスキルを軽い運動を交えながら高めていきます。<br>
+        経験年数や体力に応じた練習で個人に寄り添ったスキルアップをはかります。
+      </p>
+
+      <!-- タイムライン：練習の流れ（例：１時間の場合） -->
+      <h3>練習の流れ（例：１時間の場合）</h3>
+
+      <!-- 目盛り（0, 15, 30, 45, 60） -->
+      <div class="ticks">
+        <span>0</span><span>15</span><span>30</span><span>45</span><span>60</span>
+      </div>
+
+      <!-- レーン（60分の時間軸） -->
+      <div class="lane">
+        <!-- WARMUP：ウォームアップ -->
+        <details class="block warmup tip">
+          <summary>ウォームアップ（10分）</summary>
+          <div class="tip-box">
+            <strong>ウォームアップ（例）</strong><br>
+            ・軽いジョグ／ステップ<br>
+            ・動的ストレッチ（肩・股関節）<br>
+            ・フットワーク（サイド／バック）<br>
+            ・ボールに慣れる（キャッチ＆パス）
+          </div>
+        </details>
+
+        <!-- BASIC：基礎練 -->
+        <details class="block skill tip">
+          <summary>基礎練（25分）</summary>
+          <div class="tip-box">
+            <strong>基礎練でやること（例）</strong><br>
+            ・ボールハンドリング（止める/持ち替え）<br>
+            ・ドリブル：強弱、チェンジ、体の横を通す<br>
+            ・パス：チェスト/バウンド、キャッチ姿勢<br>
+            ・シュートフォーム確認（近距離→距離を伸ばす）
+          </div>
+        </details>
+
+        <!-- ADVANCED：応用練 -->
+        <details class="block game tip">
+          <summary>応用練（20分）</summary>
+          <div class="tip-box">
+            <strong>応用練でやること（例）</strong><br>
+            ・レイアップ（左右）<br>
+            ・1on1の基礎（攻め方/守り方）<br>
+            ・パス→カット→シュートの連携<br>
+            ・簡単なセット（2人/3人の動き）
+          </div>
+        </details>
+
+        <!-- COOLDOWN：クールダウン -->
+        <details class="block cool tip">
+          <summary>クールダウン（5分）</summary>
+          <div class="tip-box">
+            <strong>クールダウン（例）</strong><br>
+            ・呼吸を整える（軽い歩き）<br>
+            ・静的ストレッチ（腿裏・ふくらはぎ）<br>
+            ・水分補給<br>
+            ・振り返り（今日のポイント1つ）
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- =========================
+         SCHEDULE：日程・場所
+    ========================= -->
+    <section id="schedule" class="fade-in">
+      <h2><a href="schedule.html">📅 日程・場所</a></h2>
+      <ul class="info-list">
+        <li>平日 19:00〜22:00の間</li>
+        <li>つくば市、守谷市、つくばみらい市の体育館</li>
+        <li>柔軟に対応いたしますのでぜひ一度ご連絡ください</li>
+      </ul>
+    </section>
+
+    <!-- =========================
+         PRICE：料金
+    ========================= -->
+    <section id="price" class="fade-in">
+      <h2><a href="price.html">💰 料金</a></h2>
+      <ul class="info-list">
+        <li>月額7,000円（月4回）〜</li>
+        <li>1回2,000円〜</li>
+        <li>初回体験無料</li>
+      </ul>
+    </section>
+
+    <!-- =========================
+         FAQ：よくある質問
+    ========================= -->
+    <section id="faq" class="fade-in">
+      <h2><a href="faq.html">❓ よくある質問</a></h2>
+      <ul class="info-list">
+        <li>初心者でも大丈夫？ → 大歓迎です！</li>
+        <li>服装は？ → 動きやすい格好でOK。靴は体育館シューズ推奨。</li>
+        <li>年齢制限は？ → 特にありません！幅広い年齢の方を対象としています。</li>
+        <li>バスケ道具は持っていく？ → ボールは貸出あり。持参も歓迎！</li>
+      </ul>
+    </section>
+
+    <!-- =========================
+         CONTACT：お問い合わせ・申し込み
+    ========================= -->
+    <section id="contact" class="fade-in">
+      <h2><a href="contact.html">📩 お問い合わせ・申し込み</a></h2>
+      <p>以下のLINEリンクからご連絡ください。<br>体験・質問だけでもOKです！</p>
+      <button type="button" class="btn-line js-open-line">LINEで問い合わせ</button>
+    </section>
+  </main>
+
+
+  <!-- =========================
+      LINE：QRモーダル
+  ========================= -->
+  <div id="lineModal" class="line-modal" aria-hidden="true">
+    <div class="line-modal-content" role="dialog" aria-modal="true" aria-label="LINE問い合わせ">
+      <button type="button" class="line-close js-close-line" aria-label="閉じる">×</button>
+
+      <h3 class="line-title">LINEでお問い合わせ</h3>
+      <p class="line-desc">QRコードを読み取って追加してください</p>
+
+      <!-- ★ここがあなたの画像 -->
+      <img src="./images/line.jpeg" alt="LINE QRコード" class="line-qr">
+
+      <p class="line-note">追加後、下の文章を送っていただけるとスムーズです👇</p>
+
+      <textarea id="lineText" class="line-text" readonly>体験希望です！
+  ① お名前：
+  ② バスケ経験（未経験／少し／経験あり）
+  ③ 希望（体験／質問）：
+  ④ 希望日時：</textarea>
+
+      <button type="button" class="btn-line js-copy-line">文章をコピー</button>
+    </div>
+  </div>
+
+  <!-- =========================
+       FOOTER：フッター
+  ========================= -->
   <footer>
     &copy; 2025 B-ACE バスケットボールスクール All Rights Reserved.
   </footer>
 
   <script>
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
-    };
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
+  /* =========================
+     ① スクロールでフェードイン
+  ========================= */
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target); // 一度だけ発火
     });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+
+  /* =========================
+     ② タイムライン吹き出し制御
+  ========================= */
+  const tips = document.querySelectorAll('.block.tip');
+
+  tips.forEach(tip => {
+
+    /* PC：マウスが乗ったら開く */
+    tip.addEventListener('mouseenter', () => {
+      tips.forEach(t => {
+        if (t !== tip) t.removeAttribute('open');
+      });
+      tip.setAttribute('open', true);
+    });
+
+    /* PC：マウスが離れたら閉じる */
+    tip.addEventListener('mouseleave', () => {
+      tip.removeAttribute('open');
+    });
+
+    /* スマホ：タップしたら開く（他は閉じる） */
+    tip.addEventListener('click', () => {
+      tips.forEach(t => {
+        if (t !== tip) t.removeAttribute('open');
+      });
+      tip.setAttribute('open', true);
+    });
+
+  });
+  /* =========================
+    ③ LINE：QRモーダル制御
+  ========================= */
+  const lineModal = document.getElementById('lineModal');
+  const openLineBtns = document.querySelectorAll('.js-open-line');
+  const closeLineBtns = document.querySelectorAll('.js-close-line');
+  const copyLineBtn = document.querySelector('.js-copy-line');
+
+  function openLineModal() {
+    lineModal.classList.add('show');
+    lineModal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeLineModal() {
+    lineModal.classList.remove('show');
+    lineModal.setAttribute('aria-hidden', 'true');
+  }
+
+  openLineBtns.forEach(btn => btn.addEventListener('click', openLineModal));
+  closeLineBtns.forEach(btn => btn.addEventListener('click', closeLineModal));
+
+  lineModal.addEventListener('click', (e) => {
+    if (e.target === lineModal) closeLineModal(); // 背景クリックで閉じる
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLineModal(); // Escで閉じる
+  });
+
+  copyLineBtn.addEventListener('click', async () => {
+    const text = document.getElementById('lineText').value;
+    try {
+      await navigator.clipboard.writeText(text);
+      alert('コピーしました！LINEに貼り付けて送ってください。');
+    } catch {
+      alert('コピーに失敗しました。手動でコピーしてください。');
+    }
+  });
+
   </script>
 
 </body>
