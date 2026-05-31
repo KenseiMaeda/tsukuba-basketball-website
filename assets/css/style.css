@@ -427,6 +427,107 @@ section p {
   font-size: clamp(42px, 5vw, 64px);
 }
 
+/* Voice */
+
+.voice {
+  max-width: 1180px;
+}
+
+.voice-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 60px;
+}
+
+.voice-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 32px;
+  padding: 38px 30px;
+
+  text-align: center;
+
+  box-shadow: 0 15px 40px rgba(15,23,42,.05);
+
+  transition: .3s;
+}
+
+.voice-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(59,130,246,.25);
+
+  box-shadow: 0 30px 80px rgba(15,23,42,.08);
+}
+
+.voice-avatar {
+  width: 84px;
+  height: 84px;
+
+  margin: 0 auto 22px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #60a5fa,
+    #2563eb
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 12px 30px rgba(37,99,235,.25);
+}
+
+.voice-avatar svg {
+  width: 42px;
+  height: 42px;
+
+  fill: white;
+}
+
+.voice-card:nth-child(2) .voice-avatar {
+  background: linear-gradient(
+    135deg,
+    #818cf8,
+    #4f46e5
+  );
+}
+
+.voice-card:nth-child(3) .voice-avatar {
+  background: linear-gradient(
+    135deg,
+    #38bdf8,
+    #0284c7
+  );
+}
+
+.voice-stars {
+  color: #f59e0b;
+  font-size: 18px;
+  letter-spacing: 2px;
+
+  margin-bottom: 18px;
+}
+
+.voice-card p {
+  color: #475569;
+  font-size: 16px;
+  line-height: 1.9;
+
+  margin-bottom: 18px;
+}
+
+.voice-card span {
+  color: #2563eb;
+  font-weight: 700;
+  font-size: 14px;
+}
+
 /* Price */
 .price-list {
   max-width: 900px;
@@ -545,6 +646,12 @@ section p {
   border-radius: 50%;
   font-size: 22px;
   cursor: pointer;
+}
+
+.line-open-btn {
+  display: block;
+  width: fit-content;
+  margin: 16px auto 20px;
 }
 
 .line-title {
