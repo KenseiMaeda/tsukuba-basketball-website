@@ -427,20 +427,20 @@ section p {
   font-size: clamp(42px, 5vw, 64px);
 }
 
-/* Voice */
+/* REVIEW */
 
-.voice {
+.review {
   max-width: 1180px;
 }
 
-.voice-cards {
+.review-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   margin-top: 60px;
 }
 
-.voice-card {
+.review-card {
   background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 32px;
@@ -453,7 +453,7 @@ section p {
   transition: .3s;
 }
 
-.voice-card:hover {
+.review-card:hover {
   transform: translateY(-6px);
 
   border-color: rgba(59,130,246,.25);
@@ -461,7 +461,7 @@ section p {
   box-shadow: 0 30px 80px rgba(15,23,42,.08);
 }
 
-.voice-avatar {
+.review-avatar {
   width: 84px;
   height: 84px;
 
@@ -483,14 +483,14 @@ section p {
     0 12px 30px rgba(37,99,235,.25);
 }
 
-.voice-avatar svg {
+.review-avatar svg {
   width: 42px;
   height: 42px;
 
   fill: white;
 }
 
-.voice-card:nth-child(2) .voice-avatar {
+.review-card:nth-child(2) .review-avatar {
   background: linear-gradient(
     135deg,
     #818cf8,
@@ -498,7 +498,7 @@ section p {
   );
 }
 
-.voice-card:nth-child(3) .voice-avatar {
+.review-card:nth-child(3) .review-avatar {
   background: linear-gradient(
     135deg,
     #38bdf8,
@@ -506,7 +506,7 @@ section p {
   );
 }
 
-.voice-stars {
+.review-stars {
   color: #f59e0b;
   font-size: 18px;
   letter-spacing: 2px;
@@ -514,7 +514,7 @@ section p {
   margin-bottom: 18px;
 }
 
-.voice-card p {
+.review-card p {
   color: #475569;
   font-size: 16px;
   line-height: 1.9;
@@ -522,7 +522,7 @@ section p {
   margin-bottom: 18px;
 }
 
-.voice-card span {
+.review-card span {
   color: #2563eb;
   font-weight: 700;
   font-size: 14px;
