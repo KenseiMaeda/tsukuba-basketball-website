@@ -15,6 +15,10 @@ body {
   line-height: 1.7;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -64,14 +68,11 @@ a {
 .hero {
   position: relative;
   min-height: 100vh;
-
   width: 100%;
   max-width: none;
   margin: 0;
-
   display: flex;
   align-items: center;
-
   padding: 120px 8%;
   overflow: hidden;
 }
@@ -79,23 +80,18 @@ a {
 .hero-bg-video {
   position: absolute;
   inset: 0;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
   object-position: center 42%;
-
   transform: scale(1.20);
   transform-origin: center center;
-
   z-index: 0;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-
   background:
     linear-gradient(
       90deg,
@@ -103,7 +99,6 @@ a {
       rgba(248,250,252,.72) 42%,
       rgba(248,250,252,.28) 100%
     );
-
   z-index: 1;
 }
 
@@ -119,10 +114,8 @@ a {
 
 .hero-inner {
   max-width: 900px;
-
   position: relative;
   z-index: 2;
-
   margin-left: 6%;
   margin-top: 4%;
 }
@@ -368,10 +361,7 @@ section p {
 
 /* Coach */
 .coach {
-  display: grid;
   grid-template-columns: 360px minmax(0, 1fr);
-  gap: 72px;
-  align-items: center;
   max-width: 1050px;
 }
 
@@ -423,12 +413,12 @@ section p {
 .coach-right {
   max-width: 800px;
 }
+
 .coach-right h2 {
   font-size: clamp(42px, 5vw, 64px);
 }
 
-/* REVIEW */
-
+/* Review */
 .review {
   max-width: 1180px;
 }
@@ -445,72 +435,47 @@ section p {
   border: 1px solid #e2e8f0;
   border-radius: 32px;
   padding: 38px 30px;
-
   text-align: center;
-
   box-shadow: 0 15px 40px rgba(15,23,42,.05);
-
   transition: .3s;
 }
 
 .review-card:hover {
   transform: translateY(-6px);
-
   border-color: rgba(59,130,246,.25);
-
   box-shadow: 0 30px 80px rgba(15,23,42,.08);
 }
 
 .review-avatar {
   width: 84px;
   height: 84px;
-
   margin: 0 auto 22px;
-
   border-radius: 50%;
-
-  background: linear-gradient(
-    135deg,
-    #60a5fa,
-    #2563eb
-  );
-
+  background: linear-gradient(135deg, #60a5fa, #2563eb);
   display: flex;
   align-items: center;
   justify-content: center;
-
-  box-shadow:
-    0 12px 30px rgba(37,99,235,.25);
+  box-shadow: 0 12px 30px rgba(37,99,235,.25);
 }
 
 .review-avatar svg {
   width: 42px;
   height: 42px;
-
   fill: white;
 }
 
 .review-card:nth-child(2) .review-avatar {
-  background: linear-gradient(
-    135deg,
-    #818cf8,
-    #4f46e5
-  );
+  background: linear-gradient(135deg, #818cf8, #4f46e5);
 }
 
 .review-card:nth-child(3) .review-avatar {
-  background: linear-gradient(
-    135deg,
-    #38bdf8,
-    #0284c7
-  );
+  background: linear-gradient(135deg, #38bdf8, #0284c7);
 }
 
 .review-stars {
   color: #f59e0b;
   font-size: 18px;
   letter-spacing: 2px;
-
   margin-bottom: 18px;
 }
 
@@ -518,7 +483,6 @@ section p {
   color: #475569;
   font-size: 16px;
   line-height: 1.9;
-
   margin-bottom: 18px;
 }
 
@@ -709,7 +673,6 @@ section p {
   color: #dc2626;
 }
 
-
 /* Fade */
 .fade-in {
   opacity: 0;
@@ -731,8 +694,12 @@ footer {
   font-size: 13px;
 }
 
-/* Responsive */
+/* Tablet / Smartphone */
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .nav {
     display: none;
   }
@@ -741,45 +708,259 @@ footer {
     padding: 18px 6%;
   }
 
-  .hero {
-    min-height: 86vh;
-    padding: 120px 6% 70px;
-  }
-
-  .hero h1 {
-    font-size: clamp(52px, 16vw, 76px);
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .concept {
-  gap: 48px;
-  }
-  .location,
-  .coach,
-  .service-cards {
-    grid-template-columns: 1fr;
-    gap: 44px;
+  .logo-link {
+    font-size: 15px;
   }
 
   section {
-    padding: 90px 6%;
+    padding: 80px 6%;
+  }
+
+  h2 {
+    font-size: clamp(32px, 9vw, 46px);
+  }
+
+  h3 {
+    font-size: 25px;
+  }
+
+  section p {
+    font-size: 16px;
+  }
+
+  .hero {
+    min-height: 88vh;
+    padding: 115px 6% 70px;
+    align-items: center;
+  }
+
+  .hero-inner {
+    margin-left: 0;
+    margin-top: 0;
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: clamp(46px, 15vw, 68px);
+    line-height: 1;
+    letter-spacing: -0.06em;
+    margin-bottom: 26px;
+  }
+
+  .hero-lead {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 34px;
+  }
+
+  .hero-badge,
+  .section-tag {
+    font-size: 12px;
+    letter-spacing: .16em;
+  }
+
+  .hero-bg-video {
+    transform: scale(1.05);
+    object-position: center center;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(248,250,252,.95) 0%,
+        rgba(248,250,252,.82) 58%,
+        rgba(248,250,252,.50) 100%
+      );
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .btn-line,
+  .btn-secondary {
+    width: 100%;
+    max-width: 340px;
+    text-align: center;
+  }
+
+  .concept,
+  .location,
+  .coach,
+  .service-cards,
+  .review-cards {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .service-cards,
+  .review-cards {
+    margin-top: 42px;
   }
 
   .service-card,
   .location-card,
-  .coach-stats {
+  .coach-stats,
+  .review-card {
     padding: 28px;
+    border-radius: 26px;
+  }
+
+  .service-price {
+    font-size: 38px !important;
+  }
+
+  .location-box {
+    padding: 22px;
+  }
+
+  .location-box strong {
+    font-size: 23px;
+  }
+
+  .coach {
+    max-width: 100%;
+  }
+
+  .coach-left {
+    max-width: 360px;
+    margin: 0 auto;
   }
 
   .coach-img img {
-    max-width: 300px;
+    max-width: 100%;
+  }
+
+  .coach-right h2 {
+    font-size: clamp(36px, 10vw, 48px);
+  }
+
+  .price-list {
+    margin-top: 42px;
   }
 
   .price-list div {
     flex-direction: column;
+    align-items: flex-start;
     gap: 8px;
+    padding: 22px 24px;
+  }
+
+  .price-list strong {
+    font-size: 24px;
+  }
+
+  .free-trial-badge {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .info-list {
+    margin-top: 38px;
+  }
+
+  .info-list li {
+    padding: 18px 20px;
+    font-size: 15px;
+  }
+
+  .cta {
+    padding: 100px 6%;
+  }
+
+  .cta p {
+    font-size: 16px;
+  }
+
+  .line-modal {
+    padding: 14px;
+  }
+
+  .line-modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 34px 22px;
+    border-radius: 26px;
+  }
+
+  .line-qr {
+    max-width: 200px;
+  }
+
+  .line-text {
+    height: 120px;
+  }
+}
+
+/* Small smartphone */
+@media (max-width: 480px) {
+  .header-inner {
+    padding: 16px 5%;
+  }
+
+  .logo-link {
+    font-size: 14px;
+  }
+
+  section {
+    padding: 72px 5%;
+  }
+
+  .hero {
+    min-height: 84vh;
+    padding: 105px 5% 58px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 16vw, 58px);
+  }
+
+  .hero-lead {
+    font-size: 15px;
+  }
+
+  h2 {
+    font-size: clamp(30px, 9vw, 40px);
+  }
+
+  h3 {
+    font-size: 23px;
+  }
+
+  .service-card,
+  .location-card,
+  .coach-stats,
+  .review-card {
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .service-price {
+    font-size: 34px !important;
+  }
+
+  .review-avatar {
+    width: 72px;
+    height: 72px;
+  }
+
+  .review-avatar svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .price-list div {
+    padding: 20px;
+  }
+
+  .line-title {
+    font-size: 23px;
+  }
+
+  .line-modal-content {
+    padding: 30px 18px;
   }
 }
