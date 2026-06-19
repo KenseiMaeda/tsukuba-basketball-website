@@ -344,6 +344,7 @@
       <a
         href="https://line.me/ti/p/PihSrC2wMK"
         target="_blank"
+        rel="noopener noreferrer"
         class="btn-line line-open-btn"
       >
         LINEを開く
@@ -352,13 +353,17 @@
       <p class="line-note">追加後、下の文章を送っていただけるとスムーズです👇</p>
 
       <textarea id="lineText" class="line-text" readonly>体験希望です！
-① お名前：
-② 年齢：
-③ バスケ経験年数：
-④ 希望場所：
-⑤ 希望日時：</textarea>
+  ① お名前：
+  ② 年齢：
+  ③ バスケ経験年数：
+  ④ 希望場所：
+  ⑤ 希望日時：</textarea>
 
       <button type="button" class="btn-line js-copy-line">文章をコピー</button>
+
+      <p id="copyMessage" class="copy-message" hidden>
+        コピーしました！LINEに貼り付けて送ってください。
+      </p>
     </div>
   </div>
 
@@ -390,37 +395,81 @@
     const openLineBtns = document.querySelectorAll('.js-open-line');
     const closeLineBtns = document.querySelectorAll('.js-close-line');
     const copyLineBtn = document.querySelector('.js-copy-line');
+    const lineText = document.getElementById('lineText');
+    const copyMessage = document.getElementById('copyMessage');
 
     function openLineModal() {
+      if (!lineModal) return;
+
       lineModal.classList.add('show');
       lineModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
     }
 
     function closeLineModal() {
+      if (!lineModal) return;
+
       lineModal.classList.remove('show');
       lineModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
     }
 
-    openLineBtns.forEach(btn => btn.addEventListener('click', openLineModal));
-    closeLineBtns.forEach(btn => btn.addEventListener('click', closeLineModal));
+    function showCopyMessage(text, isError = false) {
+      if (!copyMessage) return;
 
-    lineModal.addEventListener('click', (e) => {
-      if (e.target === lineModal) closeLineModal();
+      copyMessage.textContent = text;
+      copyMessage.hidden = false;
+      copyMessage.classList.toggle('error', isError);
+
+      requestAnimationFrame(() => {
+        copyMessage.classList.add('show');
+      });
+
+      setTimeout(() => {
+        copyMessage.classList.remove('show');
+
+        setTimeout(() => {
+          copyMessage.hidden = true;
+          copyMessage.classList.remove('error');
+        }, 250);
+      }, 2500);
+    }
+
+    openLineBtns.forEach(btn => {
+      btn.addEventListener('click', openLineModal);
     });
+
+    closeLineBtns.forEach(btn => {
+      btn.addEventListener('click', closeLineModal);
+    });
+
+    if (lineModal) {
+      lineModal.addEventListener('click', (e) => {
+        if (e.target === lineModal) {
+          closeLineModal();
+        }
+      });
+    }
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLineModal();
-    });
-
-    copyLineBtn.addEventListener('click', async () => {
-      const text = document.getElementById('lineText').value;
-      try {
-        await navigator.clipboard.writeText(text);
-        alert('コピーしました！LINEに貼り付けて送ってください。');
-      } catch {
-        alert('コピーに失敗しました。手動でコピーしてください。');
+      if (e.key === 'Escape') {
+        closeLineModal();
       }
     });
+
+    if (copyLineBtn && lineText) {
+      copyLineBtn.addEventListener('click', async () => {
+        const text = lineText.value;
+
+        try {
+          await navigator.clipboard.writeText(text);
+          showCopyMessage('コピーしました！LINEに貼り付けて送ってください。');
+        } catch {
+          lineText.select();
+          showCopyMessage('コピーに失敗しました。文章を選択して手動でコピーしてください。', true);
+        }
+      });
+    }
   </script>
 </body>
 </html>
