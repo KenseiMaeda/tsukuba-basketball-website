@@ -342,8 +342,10 @@ section p {
 }
 
 .service-card li::before {
-  content: "繝ｻ";
+  content: "✓";
   color: var(--blue-dark);
+  font-weight: 800;
+  margin-right: 8px;
 }
 
 .service-price {
