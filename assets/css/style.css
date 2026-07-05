@@ -279,7 +279,7 @@ section p {
   letter-spacing: 0;
 }
 
-/* Conceptだけ右カードを少し小さくする */
+/* Concept縺�縺大承繧ｫ繝ｼ繝峨ｒ蟆代＠蟆上＆縺上☆繧� */
 .concept {
   grid-template-columns: minmax(0, 680px) 390px;
   gap: 72px;
@@ -342,7 +342,7 @@ section p {
 }
 
 .service-card li::before {
-  content: "・";
+  content: "繝ｻ";
   color: var(--blue-dark);
 }
 
@@ -862,10 +862,6 @@ footer {
   .coach-left {
     max-width: 360px;
     margin: 0 auto;
-  }
-
-  .coach-img img {
-    max-width: 100%;
   }
 
   .coach-right h2 {
